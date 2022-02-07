@@ -12,7 +12,7 @@ contract SaleAnimalToken {
     }
 
     // animalTokenId => price
-    mapping(uint256 = > uint256) public animalTokenPrices;
+    mapping(uint256 => uint256) public animalTokenPrices;
 
     // FE에서 어떤 토큰이 판매중인 토큰인지 확인하는데 사용하는 배열.
     uint256[] public onSaleAnimalTokenArray;
