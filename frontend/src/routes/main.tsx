@@ -14,8 +14,11 @@ const Main: FC<MainProps> = ({ account }) => {
         try {
             if(!account) return;
 
+            console.log(account);
             const response = await mintAnimalTokenContract.methods.mintAnimalToken().send({from: account});
 
+            console.log(response);
+            
             if (response.status) {
                 // 소유한 카드의 전체 개수를 가져오는 구문.
                 const balanceLength = await mintAnimalTokenContract.methods.balanceOf(account).call();
