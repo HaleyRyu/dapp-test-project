@@ -1,19 +1,11 @@
 import React, {FC, useState} from "react";
-import { Paper, Box, Button, Container, Stack, Grid } from "@mui/material";
-import { styled } from '@mui/material/styles';
 import { mintAnimalTokenContract } from "../contracts";
 import AnimalCard from "../components/AnimalCard";
+import { Box, Button, Flex, Text } from "@chakra-ui/react";
 
 interface MainProps {
     account: string;
 }
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.h4,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 const Main: FC<MainProps> = ({ account }) => {
     const [newAnimalType, setNewAnimalType] = useState<string>("");
@@ -41,18 +33,15 @@ const Main: FC<MainProps> = ({ account }) => {
         }
     }
 
-    return <Container maxWidth="xs">
-        <Stack spacing={1}>
-            <Item>
-                <Box>
-                    {newAnimalType ? <AnimalCard animalType={newAnimalType}/> : "Let's Mint Animal Card!"}
-                </Box>
-            </Item>
-        </Stack>
-        <Stack>
-            <Button variant="contained" onClick={handleMintBtnClick}>Mint</Button>
-        </Stack>
-    </Container>
+    return (
+        <Flex w="full" h="100vh" justifyContent="center" alignItems="center" direction="column">
+            <Box>
+                {newAnimalType ? <AnimalCard animalType={newAnimalType}/> : <Text fontSize="3xl">Let's Mint Animal Card!</Text>}
+            </Box>
+            <Button mt="4" size="md" colorScheme="blue" onClick={handleMintBtnClick}>Mint</Button>
+            <button onClick={handleMintBtnClick}>ddd</button>
+        </Flex>
+    );
 };
 
 export default Main;
