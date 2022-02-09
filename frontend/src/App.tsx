@@ -7,6 +7,7 @@ const App: FC = () => {
 
   const getAccount = async () => {
     try {
+      // 브라우저에 Metamask가 설치되어 있다면 실행되고, 아니면 else 문이 실행된다.
       if (window.ethereum) {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
@@ -25,14 +26,10 @@ const App: FC = () => {
     getAccount();
   }, []);
 
-  useEffect(() => {
-    console.log(account);
-  }, [account]);
-
   return (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Main />} />
+      <Route path="/" element={<Main account={account} />} />
     </Routes>
   </BrowserRouter>
   );
