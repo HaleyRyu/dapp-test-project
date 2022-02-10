@@ -1,5 +1,5 @@
 import React, {FC, useState} from "react";
-import { mintAnimalTokenContract } from "../contracts";
+import { mintAnimalTokenContract } from "../web3Config";
 import AnimalCard from "../components/AnimalCard";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 
@@ -13,11 +13,8 @@ const Main: FC<MainProps> = ({ account }) => {
     const handleMintBtnClick = async () => {
         try {
             if(!account) return;
-
-            console.log(account);
-            const response = await mintAnimalTokenContract.methods.mintAnimalToken().send({from: account});
-
-            console.log(response);
+            
+            const response = await mintAnimalTokenContract.methods.mintAnimalToken().send({ from: account });
             
             if (response.status) {
                 // 소유한 카드의 전체 개수를 가져오는 구문.

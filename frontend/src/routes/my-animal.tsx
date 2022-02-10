@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react";
-import { mintAnimalTokenContract } from "../contracts";
+import { mintAnimalTokenContract } from "../web3Config";
 import MyAnimalCard, { IMyAnimalCard } from "../components/MyAnimalCard";
 import { Grid } from "@chakra-ui/react";
 import AnimalCard from "../components/AnimalCard";
