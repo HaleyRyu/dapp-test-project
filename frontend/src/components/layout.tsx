@@ -17,7 +17,7 @@ const Layout: FC = ({ children }) => {
                 </Link>
                 <Link to="sale-animal">
                     <Button size="sm" colorScheme="green">
-                        NFT 판매
+                        NFT 마켓
                     </Button>
                 </Link>
             </Flex>
