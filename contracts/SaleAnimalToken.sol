@@ -71,4 +71,8 @@ contract SaleAnimalToken {
     function getOnSaleAnimalTokenArrayLength() view public returns (uint256) {
         return onSaleAnimalTokenArray.length;
     }
+
+    function getAnimalTokenPrice(uint256 _animalTokenId) view public returns (uint256) {
+        return animalTokenPrices[_animalTokenId];
+    }
 }
