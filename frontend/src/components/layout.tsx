@@ -10,10 +10,15 @@ const Layout: FC = ({ children }) => {
                     <Text fontWeight="bold">dApp</Text>
                 </Box>
                 <Link to="/">
-                    <Button size="sm" colorScheme='blue'>Main</Button>
+                    <Button size="sm" colorScheme='blue'>홈</Button>
                 </Link>
                 <Link to="/my-animal">
-                    <Button size="sm" colorScheme="blue">My Animal</Button>
+                    <Button size="sm" colorScheme="blue">나의 NFT</Button>
+                </Link>
+                <Link to="sale-animal">
+                    <Button size="sm" colorScheme="green">
+                        NFT 판매
+                    </Button>
                 </Link>
             </Flex>
             <Flex direction="column" h="full" justifyContent="center" alignItems="center">
