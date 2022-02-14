@@ -5,13 +5,16 @@ import {
   mintAnimalTokenContract,
   saleAnimalTokenContract,
 } from "../web3Config";
+import SaleAnimalCard from "../components/SaleAnimalCard";
 
 interface SaleAnimalProps {
   account: string;
 }
 
 const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
-  const [saleAnimalCard, setSaleAnimalCard] = useState<IMyAnimalCard[]>();
+  const [saleAnimalCardArray, setSaleAnimalCardArray] = useState<
+    IMyAnimalCard[]
+  >();
 
   const getOnSaleAnimalTokens = async () => {
     try {
@@ -37,7 +40,7 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
         tempOnSaleArray.push({ animalTokenId, animalType, animalPrice });
       }
 
-      setSaleAnimalCard(tempOnSaleArray);
+      setSaleAnimalCardArray(tempOnSaleArray);
     } catch (error) {
       console.error(error);
     }
@@ -47,11 +50,22 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
     getOnSaleAnimalTokens();
   }, []);
 
-  useEffect(() => {
-    console.log(saleAnimalCard);
-  }, [saleAnimalCard]);
-
-  return <Grid mt={4} templateColumns="repeat(4, 1fr)" gap={8}></Grid>;
+  return (
+    <Grid mt={4} templateColumns="repeat(4, 1fr)" gap={8}>
+      {saleAnimalCardArray &&
+        saleAnimalCardArray.map((v, i) => {
+          return (
+            <SaleAnimalCard
+              key={i}
+              animalType={v.animalType}
+              animalPrice={v.animalPrice}
+              animalTokenId={v.animalTokenId}
+              account={account}
+            />
+          );
+        })}
+    </Grid>
+  );
 };
 
 export default SaleAnimal;
