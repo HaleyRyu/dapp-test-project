@@ -39,7 +39,6 @@ const Main: FC<MainProps> = ({ account }) => {
                 {newAnimalType ? <AnimalCard animalType={newAnimalType}/> : <Text fontSize="3xl">Let's Mint Animal Card!</Text>}
             </Box>
             <Button mt="4" size="md" colorScheme="blue" onClick={handleMintBtnClick}>Mint</Button>
-            <button onClick={handleMintBtnClick}>ddd</button>
         </Flex>
     );
 };
