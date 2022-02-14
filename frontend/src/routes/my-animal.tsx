@@ -2,13 +2,14 @@ import React, {FC, useEffect, useState} from "react";
 import { mintAnimalTokenAddress, mintAnimalTokenContract, saleAnimalTokenAddress } from "../web3Config";
 import { Box, Button, Flex, Grid, Text } from "@chakra-ui/react";
 import AnimalCard from "../components/AnimalCard";
+import MyAnimalCard, { IMyAnimalCard } from "../components/MyAnimalCard";
 
 interface MyAnimalProps {
     account: string;
 }
 
 const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
-    const [animalCardArray, setAnimalCardArray] = useState<string[]>([]);
+    const [animalCardArray, setAnimalCardArray] = useState<IMyAnimalCard[]>([]);
     const [saleStatus, setSaleStatus] = useState<boolean>(false);
 
     const getAnimalTokens = async () => {
@@ -81,7 +82,14 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
           {animalCardArray &&
             animalCardArray.map((v, i) => {
               return (
-                <AnimalCard key={i} animalType={v} />
+                <MyAnimalCard
+                key={i}
+                animalTokenId={v.animalTokenId}
+                animalType={v.animalType}
+                animalPrice={v.animalPrice}
+                saleStatus={saleStatus}
+                account={account}
+              />
               );
             })}
         </Grid>
