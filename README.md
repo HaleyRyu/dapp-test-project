@@ -1,3 +1,6 @@
+### UI
+![screenshot1](https://user-images.githubusercontent.com/7741547/153894263-4ee672a1-59a0-4da6-90e7-a0273c05a8c5.jpg)
+
 ### TroubleShooting
 
 - 진행하다가 갑자기 메타마스크 연결이 안되고, Remix 에서 minting 이 계속 pending 되는 이슈가 발생했다.
